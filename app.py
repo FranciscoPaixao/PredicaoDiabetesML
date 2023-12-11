@@ -56,3 +56,6 @@ class PredicaoDiabetes(Resource):
             return {'resultado': 'positivo'}
         else:
             return {'resultado': 'negativo'}
+
+if __name__ == "__main__":
+    app.run()
