@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
@@ -8,6 +10,12 @@ from sklearn import svm
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score,classification_report
 import joblib
+
+pasta_modelos = 'modelos/'
+
+if not os.path.exists(pasta_modelos):
+    
+    os.makedirs(pasta_modelos)
 
 dados = pd.read_csv('diabetes.csv')
 
@@ -58,7 +66,7 @@ relatorioLR = classification_report(y_test, y_predLR)
 
 print("Relatório LR: \n", relatorioLR)
 
-joblib.dump(modeloMLP, 'modelos/mlp.obj')
-joblib.dump(modeloSVM, 'modelos/svm.obj')
-joblib.dump(modeloLR, 'modelos/lr.obj')
+joblib.dump(modeloMLP, pasta_modelos + 'mlp.obj')
+joblib.dump(modeloSVM, pasta_modelos + 'svm.obj')
+joblib.dump(modeloLR, pasta_modelos + 'lr.obj')
 
