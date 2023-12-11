@@ -1,0 +1,5 @@
+Flask
+flask-restx
+numpy
+pandas
+scikit-learn
